@@ -6,7 +6,33 @@ public class Game {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+				System.out.println("lets Play TIC TAC TOE!");
+				System.out.println("___|___|___");
+				System.out.println("___|___|___");
+				System.out.println("   |   |   ");
+			}
+			
+	public static void display (char[][] arr) {
+				
+		for (int i=0; i<3; i++) {
+			for (int j=0; j<3; j++) {
+				if (arr[i][j] != 0 && j!=2) 
+					System.out.print(" " + arr[i][j] + " |");
+				else if (arr[i][j] != 0 && j==2)
+					System.out.print(" "+arr[i][j] + " ");
+				else if (arr[i][j] == 0 && j!=2) 
+					System.out.print(" " + arr[i][j] + " |");
+				else if (arr[i][j] == 0 && j==2)
+					System.out.print(" "+arr[i][j] + " "); 
+			}
+			System.out.println();
+			if (i!=2)
+				System.out.println("___________");
+		}
+				
 	}
+	
 	
 	public static void input(int x, int y) {
 		if (x > 2) {
