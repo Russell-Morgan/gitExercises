@@ -9,22 +9,22 @@ public class Game {
 	public static void input(int x, int y) {
 		if (x > 2) {
 			System.out.println("invalid input. Please try again");
-			display();
+			return;
 		}
 		if (x < 0) {
 			System.out.println("invalid input. Please try again");
-			display();
+			return;
 		}
 		if (y > 2) {
 			System.out.println("invalid input. Please try again");
-			display();
+			return;
 		}
 		if (y < 0) {
 			System.out.println("invalid input. Please try again");
-			display();
+			return;
 		}
 		
-		algorithm(x,y)
+		algorithm(x,y);
 	}
 
 }
