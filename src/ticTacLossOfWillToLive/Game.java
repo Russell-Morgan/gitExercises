@@ -26,7 +26,7 @@ public class Game {
 			return;
 		}
 		
-		algorithm(x,y);
+		gameAlgorithm(x,y);
 	}
 	
 	public static void gameAlgorithm(int x, int y) {
