@@ -27,6 +27,10 @@ public class Game {
 			System.out.println("invalid input. Please try again");
 			return;
 		}
+		if (boardArray[y][x] != ' ') {
+			System.out.println("That spot's taken! Choose an empty square");
+			return;			
+		}
 		
 		gameAlgorithm(x,y,player);
 	}
