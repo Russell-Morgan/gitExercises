@@ -53,7 +53,9 @@ public class Game {
 	public static void runCPU() {
 		//handles CPU
 		
-		
+		if (boardArray == null) {
+			
+		}
 		
 	}
 	
