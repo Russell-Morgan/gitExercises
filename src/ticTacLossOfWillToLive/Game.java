@@ -1,21 +1,34 @@
 package ticTacLossOfWillToLive;
 
+import java.util.Scanner;
+
 public class Game {
 	
 	public static char[][] boardArray = new char[3][3];
 	public static char winner = '0';
+	static int row;
+	static int column;
 	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		
 			//printing the board to start the game
 			System.out.println("lets Play TIC TAC TOE!");
 			System.out.println("___|___|___");
 			System.out.println("___|___|___");
 			System.out.println("   |   |   ");
-			System.out.println("Enter the row the column you want to play");
+			System.out.println("Enter the row you want to play");
+			row = scan.nextInt();
+			System.out.println("Enter the column you want to play");
+			column = scan.nextInt();
 			
-			display(boardArray);
+			
+			while (!checkWin()) {
+				checkWin();
+				display(boardArray);
+			}
 			//scan
 			//call input with x and y
 			//loop
