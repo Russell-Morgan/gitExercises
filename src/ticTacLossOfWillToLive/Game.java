@@ -24,18 +24,16 @@ public class Game {
 			System.out.println("Enter the column you want to play");
 			column = scan.nextInt();
 			
+			input(row, column, 'x');
+			display(boardArray);
 			
-			while (!checkWin()) {
-				checkWin();
-				display(boardArray);
-			}
 			//scan
 			//call input with x and y
 			//loop
 		}
 			
 	public static void display (char[][] arr) {
-				
+		
 		for (int i=0; i<3; i++) {
 			for (int j=0; j<3; j++) {
 				//checks what row is to be printed and prints _|_|_ or  | | 
