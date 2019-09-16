@@ -25,7 +25,9 @@ public class Game {
 				
 		for (int i=0; i<3; i++) {
 			for (int j=0; j<3; j++) {
+				//checks what row is to be printed and prints _|_|_ or  | | 
 				if (i!=2) {
+					//checks if each tile is empty and prints accordingly
 					if (arr[i][j] != 0 && j!=2) 
 						System.out.print("_" + arr[i][j] + "_|");
 					else if (arr[i][j] != 0 && j==2)
@@ -36,6 +38,7 @@ public class Game {
 						System.out.print("___");
 				}
 				else {
+					//checks if each tile is empty and prints accordingly
 					if (arr[i][j] != 0 && j!=2) 
 						System.out.print(" " + arr[i][j] + " |");
 					else if (arr[i][j] != 0 && j==2)
