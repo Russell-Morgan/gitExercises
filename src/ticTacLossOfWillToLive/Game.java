@@ -51,7 +51,7 @@ public class Game {
 				
 	}
 	
-
+	
 	public static void input(int x, int y, char player) {
 		//handles player inputs
 
@@ -71,11 +71,12 @@ public class Game {
 			System.out.println("invalid input. Please try again");
 			return;
 		}
-		if (boardArray[y][x] != ' ') {
+		if (boardArray[x][y] != ' ') {
 			System.out.println("That spot's taken! Choose an empty square");
 			return;			
 		}
 		
+		boardArray[x][y] = player;
 		gameAlgorithm(x,y,player);
 	}
 	
