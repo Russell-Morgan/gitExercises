@@ -129,7 +129,6 @@ public class Game {
 			cpuToken = 'x';
 		}
 		
-		System.out.println("cpu is " + cpuToken);
 		int turnCount = 0;
 		//count how many times the player has played
 		for(int r = 0; r != 3; r++) {
