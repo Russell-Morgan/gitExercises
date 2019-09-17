@@ -19,14 +19,19 @@ public class Game {
 			System.out.println("___|___|___");
 			System.out.println("___|___|___");
 			System.out.println("   |   |   ");
-			System.out.println("Enter the row you want to play");
-			row = scan.nextInt();
-			System.out.println("Enter the column you want to play");
-			column = scan.nextInt();
+//			System.out.println("Enter the row you want to play");
+//			row = scan.nextInt();
+//			System.out.println("Enter the column you want to play");
+//			column = scan.nextInt();
 			
-			input(row, column, 'x');
-			display(boardArray);
-			
+			while (winner == '0') {
+				System.out.println("Enter the row you want to play");
+				row = scan.nextInt();
+				System.out.println("Enter the column you want to play");
+				column = scan.nextInt();
+				input(row, column, 'x');
+				display(boardArray);
+			}
 			//scan
 			//call input with x and y
 			//loop
@@ -39,24 +44,24 @@ public class Game {
 				//checks what row is to be printed and prints _|_|_ or  | | 
 				if (i!=2) {
 					//checks if each tile is empty and prints accordingly
-					if (arr[i][j] != 0 && j!=2) 
+					if (arr[i][j] != '\u0000' && j!=2) 
 						System.out.print("_" + arr[i][j] + "_|");
-					else if (arr[i][j] != 0 && j==2)
+					else if (arr[i][j] != '\u0000' && j==2)
 						System.out.print("_"+arr[i][j] + "_");
-					else if (arr[i][j] == 0 && j!=2) 
+					else if (arr[i][j] == '\u0000' && j!=2) 
 						System.out.print("___|");
-					else if (arr[i][j] == 0 && j==2)
+					else if (arr[i][j] == '\u0000' && j==2)
 						System.out.print("___");
 				}
 				else {
 					//checks if each tile is empty and prints accordingly
-					if (arr[i][j] != 0 && j!=2) 
+					if (arr[i][j] != '\u0000' && j!=2) 
 						System.out.print(" " + arr[i][j] + " |");
-					else if (arr[i][j] != 0 && j==2)
+					else if (arr[i][j] != '\u0000' && j==2)
 						System.out.print(" "+arr[i][j] + " ");
-					else if (arr[i][j] == 0 && j!=2) 
+					else if (arr[i][j] == '\u0000' && j!=2) 
 						System.out.print("   |");
-					else if (arr[i][j] == 0 && j==2)
+					else if (arr[i][j] == '\u0000' && j==2)
 						System.out.print("   ");
 				}
 			}
@@ -85,12 +90,12 @@ public class Game {
 			System.out.println("invalid input. Please try again");
 			return;
 		}
-		if (boardArray[x][y] != ' ') {
+		if (boardArray[x][y] != '\u0000') {
 			System.out.println("That spot's taken! Choose an empty square");
 			return;			
 		}
 		
-		boardArray[x][y] = player;
+		//boardArray[x][y] = player;
 		gameAlgorithm(x,y,player);
 	}
 	
@@ -98,7 +103,7 @@ public class Game {
 		//handles game board data
 		// x is column number, y is row number
 		
-		boardArray[y][x] = player;
+		boardArray[x][y] = player;
 		if (checkWin()) {
 			winner = player;
 		}
@@ -119,11 +124,10 @@ public class Game {
 		char cpuToken;
 		if (player == 'x') {
 			cpuToken = 'o';
-		}else {
+		}
+		else {
 			cpuToken = 'x';
 		}
-		
-		System.out.println("the cpu is playing as "+cpuToken);
 		
 		int turnCount = 0;
 		//count how many times the player has played
