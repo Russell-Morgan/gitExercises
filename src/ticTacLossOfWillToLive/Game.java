@@ -125,6 +125,14 @@ public class Game {
 		list.add(arraywin6);
 		list.add(arraywin7);
 		list.add(arraywin8);
+		
+		for(int i=0; i<7; i++) {
+			if(list.get(i)[1] == list.get(i)[2] && list.get(i)[2] == list.get(i)[3] && list.get(i)[1] == list.get(i)[3]) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 }
