@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Game {
 	
-	public static char[][] boardArray = {{0,0,0},{0,0,0},{0,0,0}};
+	public static char[][] boardArray = new char[3][3];
 	public static char winner = '0';
 	static int row;
 	static int column;
@@ -44,24 +44,24 @@ public class Game {
 				//checks what row is to be printed and prints _|_|_ or  | | 
 				if (i!=2) {
 					//checks if each tile is empty and prints accordingly
-					if (arr[i][j] != 0 && j!=2) 
+					if (arr[i][j] != '\u0000' && j!=2) 
 						System.out.print("_" + arr[i][j] + "_|");
-					else if (arr[i][j] != 0 && j==2)
+					else if (arr[i][j] != '\u0000' && j==2)
 						System.out.print("_"+arr[i][j] + "_");
-					else if (arr[i][j] == 0 && j!=2) 
+					else if (arr[i][j] == '\u0000' && j!=2) 
 						System.out.print("___|");
-					else if (arr[i][j] == 0 && j==2)
+					else if (arr[i][j] == '\u0000' && j==2)
 						System.out.print("___");
 				}
 				else {
 					//checks if each tile is empty and prints accordingly
-					if (arr[i][j] != 0 && j!=2) 
+					if (arr[i][j] != '\u0000' && j!=2) 
 						System.out.print(" " + arr[i][j] + " |");
-					else if (arr[i][j] != 0 && j==2)
+					else if (arr[i][j] != '\u0000' && j==2)
 						System.out.print(" "+arr[i][j] + " ");
-					else if (arr[i][j] == 0 && j!=2) 
+					else if (arr[i][j] == '\u0000' && j!=2) 
 						System.out.print("   |");
-					else if (arr[i][j] == 0 && j==2)
+					else if (arr[i][j] == '\u0000' && j==2)
 						System.out.print("   ");
 				}
 			}
@@ -90,7 +90,7 @@ public class Game {
 			System.out.println("invalid input. Please try again");
 			return;
 		}
-		if (boardArray[x][y] != 0) {
+		if (boardArray[x][y] != '\u0000') {
 			System.out.println("That spot's taken! Choose an empty square");
 			return;			
 		}
