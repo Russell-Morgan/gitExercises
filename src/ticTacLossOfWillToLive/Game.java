@@ -1,31 +1,44 @@
 package ticTacLossOfWillToLive;
 
+import java.util.Scanner;
+
 public class Game {
 	
 	public static char[][] boardArray = new char[3][3];
 	public static char winner = '0';
+	static int row;
+	static int column;
 	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		
 			//printing the board to start the game
 			System.out.println("lets Play TIC TAC TOE!");
 			System.out.println("___|___|___");
 			System.out.println("___|___|___");
 			System.out.println("   |   |   ");
-			System.out.println("Enter the row the column you want to play");
+			System.out.println("Enter the row you want to play");
+			row = scan.nextInt();
+			System.out.println("Enter the column you want to play");
+			column = scan.nextInt();
 			
+			input(row, column, 'x');
 			display(boardArray);
+			
 			//scan
 			//call input with x and y
 			//loop
 		}
 			
 	public static void display (char[][] arr) {
-				
+		
 		for (int i=0; i<3; i++) {
 			for (int j=0; j<3; j++) {
+				//checks what row is to be printed and prints _|_|_ or  | | 
 				if (i!=2) {
+					//checks if each tile is empty and prints accordingly
 					if (arr[i][j] != 0 && j!=2) 
 						System.out.print("_" + arr[i][j] + "_|");
 					else if (arr[i][j] != 0 && j==2)
@@ -36,6 +49,7 @@ public class Game {
 						System.out.print("___");
 				}
 				else {
+					//checks if each tile is empty and prints accordingly
 					if (arr[i][j] != 0 && j!=2) 
 						System.out.print(" " + arr[i][j] + " |");
 					else if (arr[i][j] != 0 && j==2)
