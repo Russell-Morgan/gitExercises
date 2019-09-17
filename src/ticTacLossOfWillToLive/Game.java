@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Game {
 	
-	public static char[][] boardArray = new char[3][3];
+	public static char[][] boardArray = {{0,0,0},{0,0,0},{0,0,0}};
 	public static char winner = '0';
 	static int row;
 	static int column;
@@ -19,14 +19,19 @@ public class Game {
 			System.out.println("___|___|___");
 			System.out.println("___|___|___");
 			System.out.println("   |   |   ");
-			System.out.println("Enter the row you want to play");
-			row = scan.nextInt();
-			System.out.println("Enter the column you want to play");
-			column = scan.nextInt();
+//			System.out.println("Enter the row you want to play");
+//			row = scan.nextInt();
+//			System.out.println("Enter the column you want to play");
+//			column = scan.nextInt();
 			
-			input(row, column, 'x');
-			display(boardArray);
-			
+			while (winner == '0') {
+				System.out.println("Enter the row you want to play");
+				row = scan.nextInt();
+				System.out.println("Enter the column you want to play");
+				column = scan.nextInt();
+				input(row, column, 'x');
+				display(boardArray);
+			}
 			//scan
 			//call input with x and y
 			//loop
@@ -85,12 +90,12 @@ public class Game {
 			System.out.println("invalid input. Please try again");
 			return;
 		}
-		if (boardArray[x][y] != ' ') {
+		if (boardArray[x][y] != 0) {
 			System.out.println("That spot's taken! Choose an empty square");
 			return;			
 		}
 		
-		boardArray[x][y] = player;
+		//boardArray[x][y] = player;
 		gameAlgorithm(x,y,player);
 	}
 	
@@ -98,7 +103,7 @@ public class Game {
 		//handles game board data
 		// x is column number, y is row number
 		
-		boardArray[y][x] = player;
+		boardArray[x][y] = player;
 		if (checkWin()) {
 			winner = player;
 		}
@@ -119,9 +124,12 @@ public class Game {
 		char cpuToken;
 		if (player == 'x') {
 			cpuToken = 'o';
-		}else {
+		}
+		else {
 			cpuToken = 'x';
 		}
+		
+		System.out.println("cpu is " + cpuToken);
 		int turnCount = 0;
 		//count how many times the player has played
 		for(int r = 0; r != 3; r++) {
