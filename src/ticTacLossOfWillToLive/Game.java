@@ -66,7 +66,7 @@ public class Game {
 		if (y > 2) {
 			System.out.println("invalid input. Please try again");
 			return;
-		}
+		}  
 		if (y < 0) {
 			System.out.println("invalid input. Please try again");
 			return;
@@ -79,7 +79,7 @@ public class Game {
 		boardArray[x][y] = player;
 		gameAlgorithm(x,y,player);
 	}
-	
+
 	public static void gameAlgorithm(int x, int y, char player) {
 		//handles game board data
 		// x is column number, y is row number
