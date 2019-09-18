@@ -11,27 +11,21 @@ import org.junit.jupiter.api.Test;
 
 public class TestGame {
 	
-	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-	private final PrintStream originalOut = System.out;
-	
-	
-	@Before
-	public void setUpStreams() {
-		System.setOut(new PrintStream(outContent));
-	}
-	@After
-	public void restoreStreams() {
-		System.setOut(originalOut);
-	}
 	@Test
 	public void testInput() {
-		String outOfBounds ="invalid input. Please try again";
+		final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		final PrintStream newStream = new PrintStream(outContent);
+		final PrintStream old = System.out;
+		System.setOut(newStream);
+		String outOfBounds ="invalid input. Please try again\n";
 		String spotTaken = "That spot's taken! Choose an empty square";
 		
 		Game.input(1, 3, 'x');
 		
 		// check that when x is out of bounds, error is displayed
 		assertEquals(outOfBounds, outContent.toString());
+		System.out.flush();
+		System.setOut(old);
 		
 	}
 
