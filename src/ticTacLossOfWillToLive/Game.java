@@ -30,6 +30,7 @@ public class Game {
 				System.out.println("Enter the column you want to play");
 				column = scan.nextInt();
 				input(row, column, 'x');
+				System.out.println();
 				display(boardArray);
 			}
 			//scan
